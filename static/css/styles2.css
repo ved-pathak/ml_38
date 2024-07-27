@@ -1,0 +1,85 @@
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #EFE2BA;
+    background-image: url("bg.ai");
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.container {
+    background:#c5cbe3;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 80%;
+    max-width: 550px;
+}
+
+h1 {
+    color: #d72222;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+p {
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 1.2em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    color: #fefefe;
+}
+
+label, input, button {
+    margin-bottom: 10px;
+
+}
+button {
+    background-color: #60b035;;
+    color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-style: italic;
+    
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #F13C20;
+    color: #fff;
+}
+
+
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    background-color: #60b035;;
+    color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+    background-color: #F13C20;
+    color: #fff;
+}

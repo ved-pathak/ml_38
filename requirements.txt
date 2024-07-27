@@ -1,0 +1,9 @@
+Flask
+Pillow
+requests
+opencv-python
+numpy
+scikit-learn
+matplotlib
+torch
+transformers
