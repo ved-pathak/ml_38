@@ -1,86 +1,87 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Image</title>
-</head>
-<body>
-    <h1>Download Image</h1>
-    <a href="/download/download (2).jpg" download>
-        <img src="/static/download (2).jpg" alt="Example Image" style="max-width: 300px;">
-    </a>
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Grid with Background</title>
+    <style>
+        /* Ensure the body and html take up the full viewport height */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: auto; /* Allows scrolling */
+        }
+
+        /* Set up the background image to cover the entire page */
+        .background {
+            background-image: url('bg.jpg.avif');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh; /* Ensure background covers at least full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px; /* Add some padding around the content */
+        }
+
+        /* Create a scrollable container for grid layout */
+        .scrollable-container {
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Allows scrolling if content overflows */
+        }
+
+        /* Create a 2x2 grid layout */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px; /* Space between grid items */
+            width: 100%; /* Full width of the scrollable container */
+            height: 100%; /* Full height of the scrollable container */
+            box-sizing: border-box; /* Includes padding and border in element's total width and height */
+        }
+
+        /* Style the grid items */
+        .grid-item {
+            position: relative; /* Allows positioning of the overlay */
+            overflow: hidden; /* Hide any overflow */
+            background-color: #f0f0f0; /* Background color for better visibility */
+            border: 2px solid black; /* Border around grid items */
+            display: flex; /* Flex container for centering image */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-item img {
+            max-width: 100%; /* Ensure image does not exceed container width */
+            max-height: 100%; /* Ensure image does not exceed container height */
+            object-fit: contain; /* Ensure the image fits within the container */
+        }
+    </style>
 </head>
 <body>
     <div class="background">
-        <div class="grid-container">
-            <a div class = "grid-item" href="/download/download (2).jpg" download>
-                <img src="/static/generated/final_image_with_text4.png" alt="Example Image" >
-                <div style="background-color: red;"></div>
-            </a>
-            <a div class = "grid-item" href="/download/download (2).jpg" download>
-                <img src="/static/generated/final_image_with_text3.png" alt="Example Image" >
-            </a>
-            <a div class = "grid-item" href="/download/download (2).jpg" download>
-                <img src="/static/generated/final_image_with_text2.png" alt="Example Image" >
-            </a>
-            <a div class = "grid-item" href="/download/download (2).jpg" download>
-                <img src="/static/generated/final_image_with_text1.png" alt="Example Image" >
-            </a>
+        <div class="scrollable-container">
+            <div class="grid-container">
+                <a class="grid-item" href="/static/generated/final_image_with_text4.png" download="final_image_with_text4.png">
+                    <img src="/static/generated/final_image_with_text4.png" alt="Example Image">
+                </a>
+
+                <a class="grid-item" href="/static/generated/final_image_with_text2.png" download="final_image_with_text4.png">
+                    <img src="/static/generated/final_image_with_text2.png" alt="Example Image">
+                </a>
+                <a class="grid-item" href="/static/generated/final_image_with_text3.png" download="final_image_with_text4.png">
+                    <img src="/static/generated/final_image_with_text3.png" alt="Example Image">
+                </a>
+             
+                <a class="grid-item" href="/static/generated/final_image_with_text.png" download="final_image_with_text4.png">
+                    <img src="/static/generated/final_image_with_text.png" alt="Example Image">
+                </a>
+                
+            </div>
         </div>
     </div>
 </body>
-<style>
-/* Ensure the body and html take up the full viewport height */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0; /* Added padding reset */
-    overflow: hidden; /* Prevents scrollbars */
-}
-/* Set up the background image to cover the entire page */
-.background {
-    background-image: url('bg.jpg.avif');
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Create a 2x2 grid layout */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 10px; /* Space between grid items */
-    width: 80vw; /* Adjust width as needed */
-    height: 80vh; /* Adjust height as needed */
-}
-
-/* Style the grid items and images */
-.grid-item {
-    border: 2px solid black; /* Dark border */
-    overflow: hidden;
-}
-
-.grid-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure the image covers the area */
-}
-
-</style>    
 </html>

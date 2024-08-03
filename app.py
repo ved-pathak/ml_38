@@ -36,9 +36,6 @@ def query_ext(payload):
     return response.json()
 
 
-# @app.route('/')
-# def land():
-#     return render_template('landing.html')
 
 @app.route('/')
 def index():
@@ -127,7 +124,7 @@ def generate():
         image = Image.open(BytesIO(image_bytes))
         return image    
     #generating msg1
-    message=msg_gen(prompt) 
+    message=msg_gen(prompt)
     message2=msg_gen(prompt)
     text = happy_msggen(prompt)
     prompt_fin_image = img_prompt_gen(prompt)
@@ -156,63 +153,61 @@ def generate():
         'air': os.path.join('fonts', 'AirtravelerspersonaluseBdit-ow59x.otf'),
         'gold': os.path.join('fonts', 'GoldenbeachpersonaluseBdit-jEgDM.otf'),
         'ice': os.path.join('fonts', 'IcecreamypersonaluseBold-3zgoy.otf'),
-        'ignite': os.path.join('fonts', 'IgnitetypepersonaluseRegular-K791Z.otf'),
-        'island': os.path.join('fonts', 'IslandsitalicpersonaluseIta-gxgB4.otf'),
+        
         'nature': os.path.join('fonts', 'NatureBeautyPersonalUse-9Y2DK.ttf'),
-        'plaza': os.path.join('fonts', 'PlazapersonaluseBold-d91XR.otf'),
-        'quick': os.path.join('fonts', 'QuicksilverFastRegular-DO3oE.ttf'),
-        'rich': os.path.join('fonts', 'RichTheBarberPersonalUse-gx824.ttf'),
+    
         'sung': os.path.join('fonts', 'SunglasstypepersonaluseBold-Ea7El.otf'),
-        'wesay': os.path.join('fonts', 'WesaysopersonaluseBold-L3oOZ.otf'),
-    }
+        'PlaywriteAT-VariableFont_wght': os.path.join('fonts', 'PlaywriteAT-VariableFont_wght.ttf'),
+        'PlaywriteAR-VariableFont_wght': os.path.join('fonts', 'PlaywriteAR-VariableFont_wght.ttf'), 
+        'Sevillana-Regular': os.path.join('fonts', 'Sevillana-Regular.ttf'), 
+        'PlaywriteDKUloopet-VariableFont_wght': os.path.join('fonts', 'PlaywriteDKUloopet-VariableFont_wght.ttf'), 
+        'GaMaamli-Regular': os.path.join('fonts', 'GaMaamli-Regular.ttf'), 
+        'AmaticSC-Bold': os.path.join('fonts', 'AmaticSC-Bold.ttf'), 
+        'Montez-Regular': os.path.join('fonts', 'Montez-Regular.ttf'), 
+        'Chewy': os.path.join('fonts', 'Chewy-Regular.ttf'), 
+        'SeaweedScript': os.path.join('fonts', 'SeaweedScript-Regular.ttf'), 
+        #'KalniaGlaze': os.path.join('fonts', 'KalniaGlaze-VariableFont_wdth,wght.ttf'), 
+        #'KodeMono': os.path.join('fonts', 'KodeMono-VariableFont_wght.ttf'), 
+        'SeaweedScript': os.path.join('fonts', 'SeaweedScript-Regular.ttf'), 
+        'Nabla': os.path.join('fonts', 'Nabla-Regular.ttf'),
+        'Foldit': os.path.join('fonts', 'Foldit-ExtraBold.ttf')}
+        
+    
     
     font_path = random.choice(list(font_paths.values()))
     font_path2 = random.choice(list(font_paths.values()))
-    font2_path = random.choice(list(font_paths.values()))
-    font2_path2 = random.choice(list(font_paths.values()))
-    font_size2=random.randint(150, 250)
-    font2 = ImageFont.truetype(font_path2, font_size2)
-    font22 = ImageFont.truetype(font2_path2, font_size2)
+    #font_path3 = random.choice(list(font_paths.values()))
+    font_path4 = random.choice(list(font_paths.values()))
+    font_size=random.randint(100, 200)
+    #font_size3=random.randint(100, 200)
+    font = ImageFont.truetype(font_path, font_size)
+    #font3 = ImageFont.truetype(font_path3, font_size3)
 
+
+
+    font_size2 = random.randint(150, 200)
+    font2 = ImageFont.truetype(font_path2, font_size2)
+    font4 = ImageFont.truetype(font_path4, font_size2)
+    text_width1 = font.getlength(text)
+    #text_width3=font3.getlength(text)
+    max_x = int(width - text_width1)
+    #max_x3= int(width- text_width3)
 
     print(font_path)
-    font_size = random.randint(150, 200)
-    font = ImageFont.truetype(font_path, font_size)
-    font21 = ImageFont.truetype(font2_path, font_size)
-    text_width1 = font.getlength(text)
-    text2_width1=font21.getlength(text)
-    max_x = int(width - text_width1)
-    max_x2= int(width- text2_width1)
+    print(font_path2)
+    
+    print(font_path4)
+
 
     while max_x < 20:
-        font_size = random.randint(100, 200)
+        font_size = random.randint(70, 120)
         font = ImageFont.truetype(font_path, font_size)
         text_width1 = font.getlength(text)
         max_x = int(width - text_width1)
+        print("l1")
 
 
-    #def detect_dominant_color(image_path, region, k=4, image_resize=(150, 150)):
-        #image = cv2.imread(image_path)
-        # image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        # if region:
-        #     x, y, w, h = region
-        #     image = image[y:y+h, x:x+w]
-        # image = cv2.resize(image, image_resize, interpolation=cv2.INTER_AREA)
-        # pixels = image.reshape(-1, 3)
-        # kmeans = KMeans(n_clusters=k)
-        # kmeans.fit(pixels)
-        # counts = np.bincount(kmeans.labels_)
-        # dominant_color = kmeans.cluster_centers_[np.argmax(counts)]
-        # return dominant_color
-
-    #def get_contrasting_color(dmcolor):
-        # dmcolor = np.asarray(dmcolor)
-        # contrasting_color = 255 - dmcolor
-        # return contrasting_color
-
-    # dom_color = detect_dominant_color(image_path, draw.textbbox((0, 0), text, font=font), k=4, image_resize=(150, 150))
-    # contrast_color = get_contrasting_color(dom_color)
-    # color = tuple(map(int, contrast_color))
+    
     def get_random_color():
         """
         Generate a random RGB color.
@@ -227,13 +222,13 @@ def generate():
         return (a / max) * 100
 
    
-    def add_text_to_image(image, text, text_color, dim, font1,size):
+    def add_text_to_image(image, text, text_color, dim, font_path):
         # Define font and initial font size
-        font_size = size
-        font = font1
+        font_size = 130
+        font = ImageFont.truetype(font_path, font_size)
 
         # Define initial text position
-        text_position = [0.5 * dim[0], 0.6 * dim[1]]  # X, Y coordinate
+        text_position = [0.5 * dim[0], 0.8 * dim[1]]  # X, Y coordinate
         draw = ImageDraw.Draw(image)
         lines = []
 
@@ -303,17 +298,30 @@ def generate():
     dim = (width, height)
      # White color in RGB
     
-    bbox2 = draw.textbbox((0, 0), text, font=font2)
-    text_width1 = bbox2[2] - bbox2[0]
-    x=((width-text_width1)/2)+100
-    y2=random.randint(100, int(0.4*height))
-    position2 = (x,y2)
+    
+    x=((width-text_width1)/2)
+    y=random.randint(100, int(0.4*height))
+    position = (x,y)
+
+    bbox = draw.textbbox(position, text, font=font)
+    text_height=bbox[3]-bbox[1]
+    # Create a mask for the text background blur
+    text_background = base_image.crop((x, y, x + text_width1, y + text_height))
+    blurred_background = text_background.filter(ImageFilter.GaussianBlur(radius=10))
+    base_image.paste(blurred_background, (int(x), int(y)))
+
+    text_background = base_image2.crop((x, y, x + text_width1, y + text_height))
+    blurred_background = text_background.filter(ImageFilter.GaussianBlur(radius=10))
+    base_image2.paste(blurred_background, (int(x), int(y)))
 
 
-    add_text_to_image(base_image, message,color1, dim,font,font_size)
-    add_text_to_image(base_image2, message2,color3, dim,font21,font_size)
-    draw.text(position2, text, font=font2, fill=color2)
-    draw.text(position2, text, font=font22, fill=color4)
+
+    add_text_to_image(base_image, message,color1, dim,font_path2)
+    add_text_to_image(base_image2, message2,color3, dim,font_path4)
+
+
+    draw.text(position, text, font=font, fill=color2)
+    draw2.text(position, text, font=font, fill=color4)
     
 
 
@@ -326,15 +334,29 @@ def generate():
 
     #using sd3 prompt enhancement
     def enhanced_prompt(prompt):
+        prompt_en="enhance a detailed prompt for text to image generation modelto geneate a greeting card"+prompt
         enh_prompt = [
+            
             {"role": "system", "content": "You are a helpful AI assistant."},
             {"role": "user", "content": "enhance a detailed prompt for text to image generation modelto geneate a greeting card 'a anniversary card for ved and harsh  and add some greetings '"},
             {"role": "assistant", "content": "Create an elegant and heartfelt anniversary card for Ved and Harsh. The card should feature a beautifully illustrated background with a subtle gradient of soft pastel colors, symbolizing the blending of their lives. In the center, place a hand-drawn illustration of a couple holding hands, smiling, and surrounded by delicate flowers and a small tree, representing growth and love. The couple's names, 'Ved' and 'Harsh,' should be elegantly written in cursive script along the bottom of the card. Above the couple, include a heartfelt message that reads, 'Happy Anniversary, Ved and Harsh! Wishing you a joyous anniversary filled with love and cherished memories.' The overall design should be sophisticated yet warm, with a touch of whimsy, and the greetings should convey genuine affection and well wishes for their special day."},
-            {"role": "user", "content": prompt},
+            {"role": "user", "content": "enhance a detailed prompt for text to image generation modelto geneate a greeting card 'Birthday Greeting Card for John:"},
+            {"role": "assistant", "content": "Design an elegant birthday greeting card for John. The front should showcase a vintage-style birthday cake, meticulously illustrated with intricate icing details and lit candles. Surround the cake with an arrangement of fresh, realistic roses and lilies in soft pastel colors. The background should feature a rich gradient transitioning from navy blue at the top to a shimmering silver at the bottom, adding depth and sophistication. At the top, include the text “Happy Birthday, John” in a classic serif font with gold foil accents. Inside the card, add the concise message: “Wishing you joy and success in the year ahead!” Ensure the interior design complements the elegance of the exterior."},
+            {"role": "user", "content": "enhance a detailed prompt for text to image generation modelto geneate a greeting card 'Christmas Greeting Card:"},
+            {"role": "assistant", "content": "Design a warm and inviting Christmas greeting card featuring a charming winter scene. Illustrate a snow-covered cottage with warm, glowing light from the windows and a beautifully decorated Christmas tree visible through the window. Add gently falling snowflakes and a touch of evergreen branches to enhance the festive mood. Use a rich color scheme of deep reds, forest greens, and shimmering gold. At the top, place the text “Merry Christmas” in an elegant serif font with a subtle gold trim. Inside the card, write: “Warmest wishes for a joyful holiday season.” Ensure that the interior and exterior designs harmonize with the cozy, festive theme."},
+            {"role": "user", "content": "enhance a detailed prompt for text to image generation modelto geneate a greeting card 'Thank You Greeting Card:"},
+            {"role": "assistant", "content": "Create a simple yet elegant thank you card with a delicate floral border. Use muted pastel colors like lavender and mint green for the border, incorporating subtle floral patterns. The phrase “Thank You” should be centered in a refined cursive font, and the card should feature soft, textured details like gold leaf or embossing to add a touch of sophistication. Inside, write: “Your kindness and support are deeply appreciated.” Make sure the interior design complements the elegant and appreciative tone of the exterior."},
+            {"role": "user", "content": "enhance a detailed prompt for text to image generation modelto geneate a greeting card 'Vintage style hand drawn birthday card "},
+            {"role": "assistant", "content": "Design a refined birthday greeting card . The card's front should feature an intricate, hand-drawn illustration of a vintage-style birthday cake adorned with detailed icing and lit candles. Surround the cake with a tasteful arrangement of fresh flowers, such as roses and lilies, adding a touch of sophistication. The background should transition from a rich navy blue to a shimmering silver gradient. At the top, include the text “Happy Birthday” in a classic serif font with subtle gold foil accents. Inside the card, the message should read: “Wishing you a day filled with joy, cherished moments, and all the happiness you deserve. May this year bring you endless success and fulfillment. Happy Birthday!”"},
+
+            
+            {"role": "user", "content": prompt_en},
         ]
 
         output_fin = pipe(enh_prompt, **generation_args)
         return output_fin[0]['generated_text']
+
+        
     prompt_enh1=enhanced_prompt(prompt)
     image_final3=gen_img(prompt_enh1)#1st img gen
     final_image_path3 = os.path.join('static', 'generated', 'final_image_with_text3.png')
@@ -354,5 +376,5 @@ if __name__ == '__main__':
         os.makedirs('static/generated')
     if not os.path.exists('fonts'):
         os.makedirs('fonts')
-    # Make sure to have the font files in the 'fonts' directory
+
     app.run(debug=True)
