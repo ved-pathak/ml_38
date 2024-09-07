@@ -4,7 +4,7 @@
  # Model Used
 Stable Diffusion 3 Medium is a Multimodal Diffusion Transformer (MMDiT) text-to-image model that boasts significant enhancements in image quality, typography, complex prompt     comprehension, and resource efficiency.
 
-The Phi-3 family models have been refined through supervised learning and preference adjustments to enhance their ability to follow instructions and ensure safety. They excel in various benchmarks, including common sense, language skills, mathematics, coding, long-term context, and logical reasoning, especially when compared to other models with fewer than 13 billion parameters.
+The Phi-3 family models have been refined through supervised learning and preference adjustments to enhance their ability to follow instructions and ensure safety. They excel in various benchmarks, including common sense, language skills, mathematics, coding, long-term context, and logical reasoning, especially when compared to other models with fewer than 13 billion params.
  # Approach
 We have used two approach for this Problem
 
